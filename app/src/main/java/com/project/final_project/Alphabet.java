@@ -19,7 +19,7 @@ public class Alphabet extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alphabet);
 
-        a = (Button) findViewById(R.id.a);
+        a = (Button) findViewById(R.id.a); //a
         b = (Button) findViewById(R.id.b);
         c = (Button) findViewById(R.id.c);
         d = (Button) findViewById(R.id.d);
