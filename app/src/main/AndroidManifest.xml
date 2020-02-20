@@ -15,8 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityDraw"></activity>
-        <activity android:name=".Alphabet" />
+        <activity
+            android:name=".ActivityDraw"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
+            android:name=".Alphabet"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Math"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
