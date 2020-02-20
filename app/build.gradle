@@ -11,10 +11,6 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        packagingOptions {
-            exclude 'META-INF/DEPENDENCIES'
-        }
-
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
@@ -47,6 +43,5 @@ dependencies {
     implementation 'com.github.divyanshub024:AndroidDraw:v0.1'
     implementation 'com.rm:freedrawview:1.1.2'
     implementation 'org.tensorflow:tensorflow-lite:0.0.0-nightly'
-    implementation 'org.apache.httpcomponents:httpmime:4.5.6'
 
 }
