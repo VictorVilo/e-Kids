@@ -7,101 +7,108 @@
     android:background="@drawable/gradient"
     tools:context=".Alphabets">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical">
+        android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/learn"
-            android:layout_width="350dp"
-            android:layout_height="200dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="60dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="40dp"
-            android:onClick="startAlphabets">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
 
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/logo_1" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/learn"
+                android:layout_width="350dp"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="60dp"
+                android:onClick="startAlphabets"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="40dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="200dp"
-                android:fontFamily="monospace"
-                android:text="Learn Your Alphabets"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/logo_1" />
 
-        </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="200dp"
+                    android:fontFamily="monospace"
+                    android:text="Learn Your Alphabets"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/make"
-            android:layout_width="350dp"
-            android:layout_height="200dp"
-            android:layout_below="@+id/learn"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="40dp">
+            </androidx.cardview.widget.CardView>
 
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/logo_1" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/make"
+                android:layout_width="350dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/learn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="40dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="200dp"
-                android:fontFamily="monospace"
-                android:text="Make Your Words"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/logo_1" />
 
-        </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="200dp"
+                    android:fontFamily="monospace"
+                    android:text="Make Your Words"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/count"
-            android:layout_width="350dp"
-            android:layout_height="200dp"
-            android:layout_below="@+id/make"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="40dp">
+            </androidx.cardview.widget.CardView>
 
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/logo_1" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/count"
+                android:layout_width="350dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/make"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="60dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="40dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="200dp"
-                android:fontFamily="monospace"
-                android:text="Count Alphabets"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/logo_1" />
 
-        </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="200dp"
+                    android:fontFamily="monospace"
+                    android:text="Count Alphabets"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+    </ScrollView>
 
 
-    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

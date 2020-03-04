@@ -4,133 +4,139 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:layout_gravity="center"
     android:background="@drawable/gradient"
     tools:context=".Home">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/math"
-            android:layout_width="180dp"
-            android:layout_height="300dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="90dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="20dp"
-            android:onClick="mathClick">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/math"
+        android:layout_width="180dp"
+        android:layout_height="300dp"
+        android:onClick="mathClick"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/drawing"
+        app:layout_constraintEnd_toStartOf="@+id/alphabets"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:src="@drawable/logo_1" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_1" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="50dp"
-                android:fontFamily="monospace"
-                android:text="Math"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="50dp"
+            android:fontFamily="monospace"
+            android:text="Math"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/pattern"
-            android:layout_width="180dp"
-            android:layout_height="300dp"
-            android:layout_below="@+id/math"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="20dp"
-            android:onClick="patternClick">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pattern"
+        android:layout_width="180dp"
+        android:layout_height="300dp"
+        android:layout_below="@+id/math"
+        android:onClick="patternClick"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/drawing"
+        app:layout_constraintTop_toBottomOf="@+id/alphabets">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:src="@drawable/logo_1" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_1" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="50dp"
-                android:fontFamily="monospace"
-                android:text="Pattern"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="50dp"
+            android:fontFamily="monospace"
+            android:text="Pattern"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/drawing"
-            android:layout_width="180dp"
-            android:layout_height="300dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="90dp"
-            android:layout_marginEnd="20dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="20dp"
-            android:onClick="drawingClick">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/drawing"
+        android:layout_width="180dp"
+        android:layout_height="300dp"
+        android:layout_alignParentEnd="true"
+        android:onClick="drawingClick"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/pattern"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/math">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:src="@drawable/logo_1" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_1" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="50dp"
-                android:fontFamily="monospace"
-                android:text="Drawing"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="50dp"
+            android:fontFamily="monospace"
+            android:text="Drawing"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/alphabets"
-            android:layout_width="180dp"
-            android:layout_height="300dp"
-            android:layout_below="@+id/drawing"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="20dp"
-            android:onClick="alphabetsClick"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="20dp">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/alphabets"
+        android:layout_width="180dp"
+        android:layout_height="300dp"
+        android:layout_below="@+id/drawing"
+        android:layout_alignParentEnd="true"
+        android:onClick="alphabetsClick"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/pattern"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/math"
+        app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:src="@drawable/logo_1" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_1" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="50dp"
-                android:fontFamily="monospace"
-                android:text="Alphabets"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="50dp"
+            android:fontFamily="monospace"
+            android:text="Alphabets"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 
-    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
