@@ -2,9 +2,13 @@ package com.project.final_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.project.final_project.mathforkids.MainActivity2;
 
 public class Math extends AppCompatActivity {
 
@@ -15,5 +19,20 @@ public class Math extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_math);
+    }
+
+    public void startMath(View view) {
+        Intent intent = new Intent(Math.this, MainActivity2.class);
+        startActivity(intent);
+    }
+
+    public void readMath(View view) {
+        Intent intent = new Intent(Math.this, LearnNumbers.class);
+        startActivity(intent);
+    }
+
+    public void learnWithImages(View view) {
+        Intent intent = new Intent(Math.this, ImageNumbers.class);
+        startActivity(intent);
     }
 }

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ActivityDraw">
+
+    <ImageView
+        android:id="@+id/img_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.rm.freedrawview.FreeDrawView
+            android:id="@+id/free_draw_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/side_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/color_white"
+        app:layout_constraintBottom_toBottomOf="@+id/layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/image_draw_eraser"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@android:color/white"
+            android:foreground="?selectableItemBackground"
+            android:padding="16dp"
+            android:src="@drawable/ic_eraser_black_24dp"
+            app:layout_constraintEnd_toStartOf="@id/image_draw_width"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_draw_width"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@android:color/white"
+            android:foreground="?selectableItemBackground"
+            android:padding="16dp"
+            android:src="@drawable/ic_adjust_black_24dp"
+            app:layout_constraintEnd_toStartOf="@id/image_draw_color"
+            app:layout_constraintStart_toEndOf="@id/image_draw_eraser"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_draw_color"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@android:color/white"
+            android:foreground="?selectableItemBackground"
+            android:padding="16dp"
+            android:src="@drawable/ic_color_lens_black_24dp"
+            app:layout_constraintEnd_toStartOf="@id/image_draw_opacity"
+            app:layout_constraintStart_toEndOf="@id/image_draw_width"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_draw_opacity"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@android:color/white"
+            android:foreground="?selectableItemBackground"
+            android:padding="16dp"
+            android:src="@drawable/ic_opacity_black_24dp"
+            app:layout_constraintEnd_toStartOf="@id/image_draw_undo"
+            app:layout_constraintStart_toEndOf="@id/image_draw_color"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_draw_undo"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
+            android:padding="16dp"
+            android:src="@drawable/ic_undo_black_24dp"
+            app:layout_constraintEnd_toStartOf="@id/image_draw_redo"
+            app:layout_constraintStart_toEndOf="@id/image_draw_opacity"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_draw_redo"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
+            android:padding="16dp"
+            android:src="@drawable/ic_redo_black_24dp"
+            app:layout_constraintEnd_toStartOf="@+id/image_clear_all"
+            app:layout_constraintStart_toEndOf="@id/image_draw_undo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_clear_all"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
+            android:padding="16dp"
+            android:src="@drawable/ic_delete_black_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image_draw_redo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_width"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/stroke_width"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toStartOf="@+id/slider_thickness"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_draw_eraser" />
+
+        <SeekBar
+            android:id="@+id/slider_thickness"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            app:layout_constraintEnd_toStartOf="@+id/image_clear_all"
+            app:layout_constraintStart_toEndOf="@id/text_width"
+            app:layout_constraintTop_toBottomOf="@id/image_draw_color" />
+
+        <TextView
+            android:id="@+id/text_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/stroke_alpha"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toStartOf="@+id/slider_alpha"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/slider_thickness" />
+
+        <SeekBar
+            android:id="@+id/slider_alpha"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            app:layout_constraintEnd_toStartOf="@+id/image_clear_all"
+            app:layout_constraintStart_toEndOf="@id/text_alpha"
+            app:layout_constraintTop_toBottomOf="@id/slider_thickness" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/txt_undo_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:padding="12dp"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/txt_redo_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:padding="12dp"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_clear_all"
+                    style="@style/Base.Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/cancel_all"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/btn_color"
+                    style="@style/Base.Widget.AppCompat.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/random_color"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

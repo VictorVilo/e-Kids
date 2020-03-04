@@ -1,425 +1,217 @@
 package com.project.final_project;
 
-import android.app.Activity;
-import android.media.MediaPlayer;
+import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class Alphabet extends Activity implements View.OnClickListener {
-    Button a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
-    MediaPlayer ourSong;
+import java.util.Locale;
+
+public class Alphabet extends AppCompatActivity implements TextToSpeech.OnInitListener {
+
+    TextView a1, name;
+    ImageView img, home, left, right;
+    TextToSpeech tts;
+    String s1, s2;
+    private Cursor c;
+    SQLiteDatabase db;
+    private static final String SELECT_SQL = "SELECT * FROM object where category = 'alpha'";
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_alphabet);
 
-        a = (Button) findViewById(R.id.a); //a
-        b = (Button) findViewById(R.id.b);
-        c = (Button) findViewById(R.id.c);
-        d = (Button) findViewById(R.id.d);
-        e = (Button) findViewById(R.id.e);
-        f = (Button) findViewById(R.id.f);
-        g = (Button) findViewById(R.id.g);
-        h = (Button) findViewById(R.id.h);
-        i = (Button) findViewById(R.id.i);
-        j = (Button) findViewById(R.id.j);
-        k = (Button) findViewById(R.id.k);
-        l = (Button) findViewById(R.id.l);
-        m = (Button) findViewById(R.id.m);
-        n = (Button) findViewById(R.id.n);
-        o = (Button) findViewById(R.id.o);
-        p = (Button) findViewById(R.id.p);
-        q = (Button) findViewById(R.id.q);
-        r = (Button) findViewById(R.id.r);
-        s = (Button) findViewById(R.id.s);
-        t = (Button) findViewById(R.id.t);
-        u = (Button) findViewById(R.id.u);
-        v = (Button) findViewById(R.id.v);
-        w = (Button) findViewById(R.id.w);
-        x = (Button) findViewById(R.id.x);
-        y = (Button) findViewById(R.id.y);
-        z = (Button) findViewById(R.id.z);
-        a.setOnClickListener(this);
-        b.setOnClickListener(this);
-        c.setOnClickListener(this);
-        d.setOnClickListener(this);
-        e.setOnClickListener(this);
-        f.setOnClickListener(this);
-        g.setOnClickListener(this);
-        h.setOnClickListener(this);
-        i.setOnClickListener(this);
-        j.setOnClickListener(this);
-        k.setOnClickListener(this);
-        l.setOnClickListener(this);
-        m.setOnClickListener(this);
-        n.setOnClickListener(this);
-        o.setOnClickListener(this);
-        p.setOnClickListener(this);
-        q.setOnClickListener(this);
-        r.setOnClickListener(this);
-        s.setOnClickListener(this);
-        t.setOnClickListener(this);
-        u.setOnClickListener(this);
-        v.setOnClickListener(this);
-        w.setOnClickListener(this);
-        x.setOnClickListener(this);
-        y.setOnClickListener(this);
-        z.setOnClickListener(this);
+        tts = new TextToSpeech(this, this);
+        a1 = (TextView) findViewById(R.id.tv1);
+        name = (TextView) findViewById(R.id.name);
+        img = (ImageView) findViewById(R.id.img1);
+        home = (ImageView) findViewById(R.id.home);
+        left = (ImageView) findViewById(R.id.left);
+        right = (ImageView) findViewById(R.id.right);
+
+
+        createDatabase();
+        insertIntoDB();
+        c = db.rawQuery(SELECT_SQL, null);
+        c.moveToFirst();
+        showRecords();
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(Alphabet.this, Alphabets.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (c != null) {
+                    if (c.getCount() > 0) {
+                        c.moveToPrevious();
+                        showRecords();
+                    }
+                }
+
+            }
+        });
+
+        right.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                c.moveToNext();
+                showRecords();
+            }
+        });
+        a1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                speakOut(s1);
+            }
+        });
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                speakOut(s2);
+            }
+        });
+    }
+
+    protected void showRecords() {
+        String alpha1 = c.getString(1);
+        String img1 = c.getString(2);
+        String name1 = c.getString(3);
+        a1.setText(alpha1);
+        name.setText(name1);
+
+        int id = getResources().getIdentifier(img1, "drawable", getPackageName());
+        img.setImageResource(id);
+
+        s1 = alpha1;
+        s2 = name1;
+    }
+
+    protected void createDatabase() {
+        db = openOrCreateDatabase("KLWDB", Context.MODE_PRIVATE, null);
+        db.execSQL("CREATE TABLE IF NOT EXISTS object(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, alphabet VARCHAR, img VARCHAR, name VARCHAR, category VARCHAR);");
+    }
+
+    protected void insertIntoDB() {
+
+        String query1 = "INSERT INTO object(alphabet,img,name,category) VALUES('A','apple','Apple','alpha');";
+        String query2 = "INSERT INTO object(alphabet,img,name,category) VALUES('B','ball','Ball','alpha');";
+        String query3 = "INSERT INTO object(alphabet,img,name,category) VALUES('C','car','Car','alpha');";
+        String query4 = "INSERT INTO object(alphabet,img,name,category) VALUES('D','dog','Dog','alpha');";
+        String query5 = "INSERT INTO object(alphabet,img,name,category) VALUES('E','elephant','Elephant','alpha');";
+        String query6 = "INSERT INTO object(alphabet,img,name,category) VALUES('F','fan','Fan','alpha');";
+        String query7 = "INSERT INTO object(alphabet,img,name,category) VALUES('G','grapes','Grapes','alpha');";
+        String query8 = "INSERT INTO object(alphabet,img,name,category) VALUES('H','hut','Hut','alpha');";
+        String query9 = "INSERT INTO object(alphabet,img,name,category) VALUES('I','icecream','Icecream','alpha');";
+        String query10 = "INSERT INTO object(alphabet,img,name,category) VALUES('J','jug','Jug','alpha');";
+        String query11 = "INSERT INTO object(alphabet,img,name,category) VALUES('K','kite','Kite','alpha');";
+        String query12 = "INSERT INTO object(alphabet,img,name,category) VALUES('L','lamp','Lamp','alpha');";
+        String query13 = "INSERT INTO object(alphabet,img,name,category) VALUES('M','mango','Mango','alpha');";
+        String query14 = "INSERT INTO object(alphabet,img,name,category) VALUES('N','nest','Nest','alpha');";
+        String query15 = "INSERT INTO object(alphabet,img,name,category) VALUES('O','orange','Orange','alpha');";
+        String query16 = "INSERT INTO object(alphabet,img,name,category) VALUES('P','pumpkin','Pumpkin','alpha');";
+        String query17 = "INSERT INTO object(alphabet,img,name,category) VALUES('Q','quill','Quill','alpha');";
+        String query18 = "INSERT INTO object(alphabet,img,name,category) VALUES('R','rose','Rose','alpha');";
+        String query19 = "INSERT INTO object(alphabet,img,name,category) VALUES('S','snake','Snake','alpha');";
+        String query20 = "INSERT INTO object(alphabet,img,name,category) VALUES('T','tomato','Tomato','alpha');";
+        String query21 = "INSERT INTO object(alphabet,img,name,category) VALUES('U','umbrella','Umbrella','alpha');";
+        String query22 = "INSERT INTO object(alphabet,img,name,category) VALUES('V','van','Van','alpha');";
+        String query23 = "INSERT INTO object(alphabet,img,name,category) VALUES('W','watch','Watch','alpha');";
+        String query24 = "INSERT INTO object(alphabet,img,name,category) VALUES('X','xylophone','Xylophone','alpha');";
+        String query25 = "INSERT INTO object(alphabet,img,name,category) VALUES('Y','yacht','Yacht','alpha');";
+        String query26 = "INSERT INTO object(alphabet,img,name,category) VALUES('Z','zebra','Zebra','alpha');";
+        db.execSQL(query1);
+        db.execSQL(query2);
+        db.execSQL(query3);
+        db.execSQL(query4);
+        db.execSQL(query5);
+        db.execSQL(query6);
+        db.execSQL(query7);
+        db.execSQL(query8);
+        db.execSQL(query9);
+        db.execSQL(query10);
+        db.execSQL(query11);
+        db.execSQL(query12);
+        db.execSQL(query13);
+        db.execSQL(query14);
+        db.execSQL(query15);
+        db.execSQL(query16);
+        db.execSQL(query17);
+        db.execSQL(query18);
+        db.execSQL(query19);
+        db.execSQL(query20);
+        db.execSQL(query21);
+        db.execSQL(query22);
+        db.execSQL(query23);
+        db.execSQL(query24);
+        db.execSQL(query25);
+        db.execSQL(query26);
 
     }
 
 
-    public void onClick(View v) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        LayoutInflater factory;
-        View view;
-        ImageView image;
-        switch (v.getId()) {
+    @Override
 
-            case R.id.a:
-
-                ourSong = MediaPlayer.create(this, R.raw.a);
-                ourSong.start();
-                builder.setTitle("A");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.a);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.b:
-
-                ourSong = MediaPlayer.create(this, R.raw.b);
-                ourSong.start();
-                builder.setTitle("B");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.b);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.c:
-
-                ourSong = MediaPlayer.create(this, R.raw.c);
-                ourSong.start();
-                builder.setTitle("C");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.c);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.d:
-
-                ourSong = MediaPlayer.create(this, R.raw.d);
-                ourSong.start();
-                builder.setTitle("D");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.d);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.e:
-
-                ourSong = MediaPlayer.create(this, R.raw.e);
-                ourSong.start();
-                builder.setTitle("E");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.e);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.f:
-
-                ourSong = MediaPlayer.create(this, R.raw.f);
-                ourSong.start();
-                builder.setTitle("F");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.f);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.g:
-
-                ourSong = MediaPlayer.create(this, R.raw.g);
-                ourSong.start();
-                builder.setTitle("G");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.g);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.h:
-
-                ourSong = MediaPlayer.create(this, R.raw.h);
-                ourSong.start();
-                builder.setTitle("H");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.h);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.i:
-
-                ourSong = MediaPlayer.create(this, R.raw.i);
-                ourSong.start();
-                builder.setTitle("I");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.i);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.j:
-
-                ourSong = MediaPlayer.create(this, R.raw.j);
-                ourSong.start();
-                builder.setTitle("J");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.j);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.k:
-
-                ourSong = MediaPlayer.create(this, R.raw.k);
-                ourSong.start();
-                builder.setTitle("K");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.k);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.l:
-
-                ourSong = MediaPlayer.create(this, R.raw.l);
-                ourSong.start();
-                builder.setTitle("L");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.l);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.m:
-
-                ourSong = MediaPlayer.create(this, R.raw.m);
-                ourSong.start();
-                builder.setTitle("M");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.m);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.n:
-
-                ourSong = MediaPlayer.create(this, R.raw.n);
-                ourSong.start();
-                builder.setTitle("N");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.n);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.o:
-
-                ourSong = MediaPlayer.create(this, R.raw.o);
-                ourSong.start();
-                builder.setTitle("O");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.o);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.p:
-
-                ourSong = MediaPlayer.create(this, R.raw.p);
-                ourSong.start();
-                builder.setTitle("P");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.p);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.q:
-
-                ourSong = MediaPlayer.create(this, R.raw.q);
-                ourSong.start();
-                builder.setTitle("Q");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.q);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.r:
-
-                ourSong = MediaPlayer.create(this, R.raw.r);
-                ourSong.start();
-                builder.setTitle("R");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.r);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.s:
-
-                ourSong = MediaPlayer.create(this, R.raw.s);
-                ourSong.start();
-                builder.setTitle("S");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.s);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.t:
-
-                ourSong = MediaPlayer.create(this, R.raw.t);
-                ourSong.start();
-                builder.setTitle("T");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.t);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.u:
-
-                ourSong = MediaPlayer.create(this, R.raw.u);
-                ourSong.start();
-                builder.setTitle("U");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.u);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.v:
-
-                ourSong = MediaPlayer.create(this, R.raw.v);
-                ourSong.start();
-                builder.setTitle("V");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.v);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.w:
-
-                ourSong = MediaPlayer.create(this, R.raw.w);
-                ourSong.start();
-                builder.setTitle("W");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.w);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.x:
-
-                ourSong = MediaPlayer.create(this, R.raw.x);
-                ourSong.start();
-                builder.setTitle("X");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.x);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.y:
-
-                ourSong = MediaPlayer.create(this, R.raw.y);
-                ourSong.start();
-                builder.setTitle("Y");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.y);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
-            case R.id.z:
-
-                ourSong = MediaPlayer.create(this, R.raw.z);
-                ourSong.start();
-                builder.setTitle("Z");
-                factory = LayoutInflater.from(Alphabet.this);
-                view = factory.inflate(R.layout.a, null);
-                image = (ImageView) view.findViewById(R.id.ai);
-                image.setImageResource(R.drawable.z);
-                builder.setView(view);
-                builder.setNeutralButton("BACK", null);
-                builder.show();
-                break;
+    public void onDestroy() {
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
         }
+        super.onDestroy();
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
+    public void onInit(int status) {
+
+        if (status == TextToSpeech.SUCCESS) {
+
+            int result = tts.setLanguage(Locale.UK);
+
+            if (result == TextToSpeech.LANG_MISSING_DATA
+                    || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Toast.makeText(Alphabet.this, "This Language is not supported", Toast.LENGTH_SHORT).show();
+            } else {
+
+                a1.setEnabled(true);
+                img.setEnabled(true);
+                speakOut("");
+            }
+
+        } else {
+            Log.e("TTS", "Initialization Failed!");
+        }
+
+    }
+
+    private void speakOut(String text) {
+        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
 }
+
