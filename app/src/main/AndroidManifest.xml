@@ -18,6 +18,42 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".ImageNumbers"
+            android:screenOrientation="userLandscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".ImageDetection"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".EasyPaint"
+            android:theme="@style/Theme" />
+        <activity
+            android:name=".LearnNumbers"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".mathforkids.SettingsActivity"
+            android:parentActivityName=".mathforkids.MainActivity2" />
+        <activity
+            android:name=".mathforkids.ScoreActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".mathforkids.QuestionActivity"
+            android:label="Let&apos;s learn Math"
+            android:parentActivityName=".mathforkids.MainActivity2" />
+        <activity
+            android:name=".mathforkids.GameOverActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".mathforkids.AchievementActivity"
+            android:parentActivityName=".mathforkids.MainActivity2" />
+        <activity
+            android:name=".mathforkids.AboutActivity"
+            android:parentActivityName=".mathforkids.MainActivity2" />
+        <activity
+            android:name=".mathforkids.MainActivity2"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".ImageNumbers"
             android:screenOrientation="userLandscape"
