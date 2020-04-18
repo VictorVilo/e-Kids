@@ -1,11 +1,10 @@
 package com.project.final_project;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -54,9 +53,10 @@ public class ImageNumbers extends AppCompatActivity implements TextToSpeech.OnIn
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(ImageNumbers.this, Math.class);
-                startActivity(intent);
+                //Intent intent = new Intent();
+                //intent.setClass(ImageNumbers.this, Math.class);
+                //startActivity(intent);
+                finish();
             }
         });
 
@@ -109,16 +109,16 @@ public class ImageNumbers extends AppCompatActivity implements TextToSpeech.OnIn
 
     protected void insertIntoDB() {
 
-        String query1 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('1','one','ONE','numbers');";
-        String query2 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('2','two','TWO','numbers');";
-        String query3 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('3','three','THREE','numbers');";
-        String query4 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('4','four','FOUR','numbers');";
-        String query5 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('5','five','FIVE','numbers');";
-        String query6 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('6','six','SIX','numbers');";
-        String query7 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('7','seven','SEVEN','numbers');";
-        String query8 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('8','eight','EIGHT','numbers');";
-        String query9 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('9','nine','NINE','numbers');";
-        String query10 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('10','ten','TEN','numbers');";
+        String query1 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('1','number_one','ONE','numbers');";
+        String query2 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('2','number_two','TWO','numbers');";
+        String query3 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('3','number_three','THREE','numbers');";
+        String query4 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('4','number_four','FOUR','numbers');";
+        String query5 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('5','number_five','FIVE','numbers');";
+        String query6 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('6','number_six','SIX','numbers');";
+        String query7 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('7','number_seven','SEVEN','numbers');";
+        String query8 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('8','number_eight','EIGHT','numbers');";
+        String query9 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('9','number_nine','NINE','numbers');";
+        String query10 = "INSERT INTO numbers(alphabet,img,name,category) VALUES('10','number_ten','TEN','numbers');";
         db.execSQL(query1);
         db.execSQL(query2);
         db.execSQL(query3);

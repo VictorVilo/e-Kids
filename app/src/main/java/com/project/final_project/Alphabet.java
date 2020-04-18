@@ -1,11 +1,10 @@
 package com.project.final_project;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -54,9 +53,9 @@ public class Alphabet extends AppCompatActivity implements TextToSpeech.OnInitLi
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(Alphabet.this, Alphabets.class);
-                startActivity(intent);
+                //Intent intent = new Intent();
+                //intent.setClass(Alphabet.this, Alphabets.class);
+                //startActivity(intent);
                 finish();
             }
         });

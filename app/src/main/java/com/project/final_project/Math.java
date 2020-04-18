@@ -1,12 +1,12 @@
 package com.project.final_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.project.final_project.mathforkids.MainActivity2;
 
@@ -33,6 +33,11 @@ public class Math extends AppCompatActivity {
 
     public void learnWithImages(View view) {
         Intent intent = new Intent(Math.this, ImageNumbers.class);
+        startActivity(intent);
+    }
+
+    public void openOperations(View view) {
+        Intent intent = new Intent(Math.this, ImageMath.class);
         startActivity(intent);
     }
 }

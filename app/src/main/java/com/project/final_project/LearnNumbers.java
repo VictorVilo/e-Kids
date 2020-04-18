@@ -1,15 +1,14 @@
 package com.project.final_project;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -190,6 +189,156 @@ public class LearnNumbers extends AppCompatActivity {
         numbersList.add(numbers);
 
         numbers = new Numbers("50", "Fifty");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("51", "Fifty one");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("52", "Fifty two");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("53", "Fifty three");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("54", "Fifty four");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("55", "Fifty five");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("56", "Fifty six");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("57", "Fifty seven");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("58", "Fifty eight");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("59", "Fifty nine");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("60", "Sixty");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("61", "Sixty one");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("62", "Sixty two");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("63", "Sixty three");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("64", "Sixty four");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("65", "Sixty five");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("66", "Sixty six");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("67", "Sixty seven");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("68", "Sixty eight");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("69", "Sixty nine");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("70", "Seventy");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("71", "Seventy one");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("72", "Seventy two");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("73", "Seventy three");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("74", "Seventy four");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("75", "Seventy five");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("76", "Seventy six");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("77", "Seventy seven");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("78", "Seventy eight");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("79", "Seventy nine");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("80", "Eighty");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("81", "Eighty one");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("82", "Eighty two");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("83", "Eighty three");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("84", "Eighty four");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("85", "Eighty five");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("86", "Eighty six");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("87", "Eighty seven");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("88", "Eighty eight");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("89", "Eighty nine");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("90", "Ninety");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("91", "Ninety one");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("92", "Ninety two");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("93", "Ninety three");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("94", "Ninety four");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("95", "Ninety five");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("96", "Ninety six");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("97", "Ninety seven");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("98", "Ninety eight");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("99", "Ninety nine");
+        numbersList.add(numbers);
+
+        numbers = new Numbers("100", "One hundred");
         numbersList.add(numbers);
 
 

@@ -18,7 +18,6 @@
         <item name="red_600" type="color">#dd191d</item>
         <item name="red_700" type="color">#d01716</item>
         <item name="red_800" type="color">#c41411</item>
-        <item name="red_900" type="color">#b0120a</item>
         <item name="red_A400" type="color">#ff2d6f</item>
         <item name="red_A700" type="color">#e00032</item>
         <item name="pink_300" type="color">#f06292</item>
@@ -60,10 +59,8 @@
         <item name="blue_300" type="color">#91a7ff</item>
         <item name="blue_400" type="color">#738ffe</item>
         <item name="blue_500" type="color">#5677fc</item>
-        <item name="blue_600" type="color">#4e6cef</item>
         <item name="blue_700" type="color">#455ede</item>
         <item name="blue_800" type="color">#3b50ce</item>
-        <item name="blue_900" type="color">#2a36b1</item>
         <item name="blue_A400" type="color">#4d73ff</item>
         <item name="blue_A700" type="color">#4d69ff</item>
         <item name="light_blue_300" type="color">#4fc3f7</item>
@@ -164,16 +161,40 @@
         <item name="brown_800" type="color">#4e342e</item>
         <item name="brown_900" type="color">#3e2723</item>
         <item name="grey_500" type="color">#9e9e9e</item>
-        <item name="grey_600" type="color">#757575</item>
         <item name="grey_700" type="color">#616161</item>
         <item name="grey_800" type="color">#424242</item>
         <item name="blue_grey_300" type="color">#90a4ae</item>
         <item name="blue_grey_400" type="color">#78909c</item>
-        <item name="blue_grey_500" type="color">#607d8b</item>
         <item name="blue_grey_600" type="color">#546e7a</item>
         <item name="blue_grey_700" type="color">#455a64</item>
         <item name="blue_grey_800" type="color">#37474f</item>
         <item name="blue_grey_900" type="color">#263238</item>
     </array>
+
+    <!--?xml version="1.0" encoding="UTF-8"?-->
+    <!-- Default colors -->
+    <color name="blue_600">#1E88E5</color>
+    <color name="blue_900">#0d47a1</color>
+
+    <!-- Dark colors -->
+    <color name="grey_400">#bdbdbd</color>
+    <color name="grey_600">#757575</color>
+    <color name="grey_900">#212121</color>
+
+    <!-- Other colors -->
+    <color name="blue_grey_500">#607d8b</color>
+    <color name="red_900">#b71c1c</color>
+
+    <color name="icon_color">#C2C2C2</color>
+    <color name="icon_selected_color">#757575</color>
+    <color name="icon_pressed_color">#757575</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000</color>
+    <color name="color_red">#FF5252</color>
+    <color name="color_yellow">#FFEB3B</color>
+    <color name="color_green">#00C853</color>
+    <color name="color_blue">#00B0FF</color>
+    <color name="color_pink">#D500F9</color>
+    <color name="color_brown">#8D6E63</color>
 
 </resources>

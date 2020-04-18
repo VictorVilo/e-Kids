@@ -30,7 +30,7 @@
             android:layout_marginBottom="20dp"
             android:layout_weight="0.4"
             android:adjustViewBounds="true"
-            android:src="@drawable/cat" />
+            android:src="@drawable/babies" />
 
         <!--Put speech bubble here. Use scaleType to scale speech bubble to width size-->
         <FrameLayout

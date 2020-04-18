@@ -7,69 +7,108 @@
     android:background="@drawable/gradient"
     tools:context=".Drawing">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/learn"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:onClick="startDrawing"
-        app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/make"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/logo_1" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="200dp"
-            android:fontFamily="monospace"
-            android:text="Free Drawing"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/learn"
+                android:layout_width="350dp"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="60dp"
+                android:onClick="startDrawing"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="40dp">
 
-    </androidx.cardview.widget.CardView>
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/free_drawing_icon" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/make"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        android:layout_below="@+id/learn"
-        android:layout_centerHorizontal="true"
-        app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/learn">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="200dp"
+                    android:fontFamily="monospace"
+                    android:text="Let's Draw Anything"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/logo_1" />
+            </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="200dp"
-            android:fontFamily="monospace"
-            android:text="Play Memory Game"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/make"
+                android:layout_width="350dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/learn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="60dp"
+                android:onClick="startMlDraw"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="40dp">
 
-    </androidx.cardview.widget.CardView>
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/logo_1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="200dp"
+                    android:fontFamily="monospace"
+                    android:text="Tell Me"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/game"
+                android:layout_width="350dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/make"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="60dp"
+                android:onClick="startGame"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="40dp">
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/memory_game_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="200dp"
+                    android:fontFamily="monospace"
+                    android:text="Play Memory Game"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
