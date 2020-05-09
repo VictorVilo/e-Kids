@@ -1,8 +1,6 @@
 package com.project.final_project;
 
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -23,12 +21,10 @@ public class LearnNumbers extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_learn_numbers);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.recycler_view);
 
         mAdapter = new NumbersAdapter(numbersList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -348,54 +344,5 @@ public class LearnNumbers extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
     }
 
-
-   /* @Override
-    public void onDestroy() {
-        if (tts != null) {
-            tts.stop();
-            tts.shutdown();
-        }
-        super.onDestroy();
-    }
-    public void onInit(int status) {
-
-        if (status == TextToSpeech.SUCCESS) {
-
-            int result = tts.setLanguage(Locale.UK);
-
-            if (result == TextToSpeech.LANG_MISSING_DATA
-                    || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                Toast.makeText(LearnNumbers.this, "This Language is not supported", Toast.LENGTH_SHORT).show();
-            } else {
-                img1.setEnabled(true);
-                img2.setEnabled(true);
-                img3.setEnabled(true);
-                img4.setEnabled(true);
-                img5.setEnabled(true);
-                img6.setEnabled(true);
-                img7.setEnabled(true);
-                img8.setEnabled(true);
-                img9.setEnabled(true);
-                img10.setEnabled(true);
-                img11.setEnabled(true);
-                img12.setEnabled(true);
-                speakOut("");
-            }
-
-        } else {
-            Log.e("TTS", "Initialization Failed!");
-        }
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        finish();
-    }
-
-    private void speakOut(String text)
-    {
-        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-    }*/
 
 }

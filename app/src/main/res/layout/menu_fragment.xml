@@ -13,7 +13,7 @@
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:src="@drawable/button_start_lights"/>
-    
+
     <ImageView
         android:id="@+id/start_game_button"
         android:layout_width="@dimen/start_game_button"
@@ -47,17 +47,8 @@
         android:scaleType="centerCrop"
         android:src="@drawable/button_google_play" />
 
-	<ImageView
-        android:id="@+id/title"
-        android:layout_width="@dimen/title_width"
-        android:layout_height="@dimen/title_height"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/title_margin_top"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/title" />
-	
-	<ImageView
+
+    <ImageView
         android:id="@+id/tooltip"
         android:layout_width="@dimen/tooltip_width"
         android:layout_height="@dimen/tooltip_height"

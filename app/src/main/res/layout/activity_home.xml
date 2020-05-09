@@ -9,6 +9,28 @@
     android:background="@drawable/gradient"
     tools:context=".Home">
 
+    <com.github.glomadrian.grav.GravView
+        android:id="@+id/grav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        app:animationGenerators="@array/BubbleAnimations"
+        app:array_colors="@array/bubble2"
+        app:ball_from_size="10dp"
+        app:ball_to_size="40dp"
+        app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
+        app:gravGenerator="com.github.glomadrian.grav.generator.grav.BallGenerator"
+        app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"
+        app:regular_cell_size="300"
+        app:regular_variance="300"
+        app:shake_direction="vertical"
+        app:shake_max_duration="20000"
+        app:shake_min_duration="10000"
+        app:shake_variance="500dp"
+        app:side_to_side_direction="downToUp"
+        app:side_to_side_max_duration="10000"
+        app:side_to_side_min_duration="10000" />
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/math"
@@ -98,7 +120,7 @@
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="50dp"
             android:fontFamily="monospace"
-            android:text="Drawing"
+            android:text="Doodle &amp; Fun"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="20sp" />

@@ -11,7 +11,7 @@ public class Addition extends AppCompatActivity {
 
     ImageView nOne1, nTwo2, nThree3, nFour4, nFive5, nSix6, nSeven7, nEight8, nNine9, nTen10;
     ImageView mOne1, mTwo2, mThree3, mFour4, mFive5, mSix6, mSeven7, mEight8, mNine9, mTen10;
-    ImageView resImg1, resImg2, plus;
+    ImageView resImg1, resImg2, equals;
     TextView nText1, nText2;
 
     @Override
@@ -19,35 +19,35 @@ public class Addition extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addition);
 
-        nOne1 = (ImageView) findViewById(R.id.number_one);
-        nTwo2 = (ImageView) findViewById(R.id.number_two);
-        nThree3 = (ImageView) findViewById(R.id.number_three);
-        nFour4 = (ImageView) findViewById(R.id.number_four);
-        nFive5 = (ImageView) findViewById(R.id.number_five);
-        nSix6 = (ImageView) findViewById(R.id.number_six);
-        nSeven7 = (ImageView) findViewById(R.id.number_seven);
-        nEight8 = (ImageView) findViewById(R.id.number_eight);
-        nNine9 = (ImageView) findViewById(R.id.number_nine);
-        nTen10 = (ImageView) findViewById(R.id.number_ten);
+        nOne1 = findViewById(R.id.number_one);
+        nTwo2 = findViewById(R.id.number_two);
+        nThree3 = findViewById(R.id.number_three);
+        nFour4 = findViewById(R.id.number_four);
+        nFive5 = findViewById(R.id.number_five);
+        nSix6 = findViewById(R.id.number_six);
+        nSeven7 = findViewById(R.id.number_seven);
+        nEight8 = findViewById(R.id.number_eight);
+        nNine9 = findViewById(R.id.number_nine);
+        nTen10 = findViewById(R.id.number_ten);
 
-        mOne1 = (ImageView) findViewById(R.id.number_one1);
-        mTwo2 = (ImageView) findViewById(R.id.number_two2);
-        mThree3 = (ImageView) findViewById(R.id.number_three3);
-        mFour4 = (ImageView) findViewById(R.id.number_four4);
-        mFive5 = (ImageView) findViewById(R.id.number_five5);
-        mSix6 = (ImageView) findViewById(R.id.number_six6);
-        mSeven7 = (ImageView) findViewById(R.id.number_seven7);
-        mEight8 = (ImageView) findViewById(R.id.number_eight8);
-        mNine9 = (ImageView) findViewById(R.id.number_nine9);
-        mTen10 = (ImageView) findViewById(R.id.number_ten10);
+        mOne1 = findViewById(R.id.number_one1);
+        mTwo2 = findViewById(R.id.number_two2);
+        mThree3 = findViewById(R.id.number_three3);
+        mFour4 = findViewById(R.id.number_four4);
+        mFive5 = findViewById(R.id.number_five5);
+        mSix6 = findViewById(R.id.number_six6);
+        mSeven7 = findViewById(R.id.number_seven7);
+        mEight8 = findViewById(R.id.number_eight8);
+        mNine9 = findViewById(R.id.number_nine9);
+        mTen10 = findViewById(R.id.number_ten10);
 
-        nText1 = (TextView) findViewById(R.id.num_one);
-        nText2 = (TextView) findViewById(R.id.num_two);
+        nText1 = findViewById(R.id.num_one);
+        nText2 = findViewById(R.id.num_two);
 
-        resImg1 = (ImageView) findViewById(R.id.res1);
-        resImg2 = (ImageView) findViewById(R.id.res2);
+        resImg1 = findViewById(R.id.res1);
+        resImg2 = findViewById(R.id.res2);
 
-        plus = (ImageView) findViewById(R.id.getPlus);
+        equals = findViewById(R.id.equals_sign);
 
         nOne1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,7 +173,7 @@ public class Addition extends AppCompatActivity {
             }
         });
 
-        plus.setOnClickListener(new View.OnClickListener() {
+        equals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (nText1.getText() == "1") {

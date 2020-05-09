@@ -7,6 +7,28 @@
     android:background="@drawable/gradient"
     tools:context=".Pattern">
 
+    <com.github.glomadrian.grav.GravView
+        android:id="@+id/grav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        app:animationGenerators="@array/BubbleAnimations"
+        app:array_colors="@array/bubble2"
+        app:ball_from_size="10dp"
+        app:ball_to_size="40dp"
+        app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
+        app:gravGenerator="com.github.glomadrian.grav.generator.grav.BallGenerator"
+        app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"
+        app:regular_cell_size="300"
+        app:regular_variance="300"
+        app:shake_direction="vertical"
+        app:shake_max_duration="20000"
+        app:shake_min_duration="10000"
+        app:shake_variance="500dp"
+        app:side_to_side_direction="downToUp"
+        app:side_to_side_max_duration="10000"
+        app:side_to_side_min_duration="10000" />
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/learn"
@@ -25,7 +47,7 @@
             android:layout_width="200dp"
             android:layout_height="150dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/logo_1" />
+            android:src="@drawable/find" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,7 +55,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="200dp"
             android:fontFamily="monospace"
-            android:text="Detect Shapes From Image"
+            android:text="Find Shapes"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="20sp" />
@@ -46,7 +68,7 @@
         android:layout_height="200dp"
         android:layout_below="@+id/learn"
         android:layout_centerHorizontal="true"
-        android:onClick="canvasClick"
+        android:onClick="startMlDraw"
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,7 +80,7 @@
             android:layout_width="200dp"
             android:layout_height="150dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/logo_1" />
+            android:src="@drawable/tell_me" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,7 +88,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="200dp"
             android:fontFamily="monospace"
-            android:text="Detect Shapes From Canvas"
+            android:text="Tell Me"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="20sp" />

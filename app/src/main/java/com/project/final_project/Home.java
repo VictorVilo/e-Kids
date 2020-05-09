@@ -1,10 +1,5 @@
 package com.project.final_project;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,6 +8,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 public class Home extends AppCompatActivity {
 
@@ -24,17 +23,7 @@ public class Home extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_home);
 
-        if (ContextCompat.checkSelfPermission(Home.this,
-                Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(Home.this,
-                    Manifest.permission.CAMERA)) {
-                ActivityCompat.requestPermissions(Home.this,
-                        new String[]{Manifest.permission.CAMERA}, 1);
-            } else {
-                ActivityCompat.requestPermissions(Home.this,
-                        new String[]{Manifest.permission.CAMERA}, 1);
-            }
-        }
+
     }
 
     @Override

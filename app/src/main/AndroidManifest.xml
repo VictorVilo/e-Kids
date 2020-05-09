@@ -4,31 +4,56 @@
     package="com.project.final_project">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
+    <supports-screens
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
 
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.screen.landscape" />
 
     <dist:module dist:instant="true" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".LearnAlphabets"
+            android:screenOrientation="userLandscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".AlphabetImages"
+            android:label="Make a Word"
+            android:parentActivityName=".Alphabets" />
         <activity android:name=".ImageActivity" />
-        <activity android:name=".KotlinDrawing"
-            android:label="Let's Draw Anything"/>
-        <activity android:name=".MainKotlin"
-            android:label="Let's Draw Anything"/>
+        <activity
+            android:name=".KotlinDrawing"
+            android:label="Let&apos;s Draw Anything"
+            android:parentActivityName=".MainKotlin" />
+        <activity
+            android:name=".MainKotlin"
+            android:label="Let&apos;s Draw Anything"
+            android:parentActivityName=".Drawing" />
         <activity
             android:name=".MainGameActivity"
-            android:screenOrientation="userLandscape" />
+            android:screenOrientation="userLandscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Minus"
             android:label="Subtraction"
@@ -42,7 +67,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Classify"
-            android:parentActivityName=".Drawing" />
+            android:parentActivityName=".Pattern" />
         <activity
             android:name=".ImageNumbers"
             android:screenOrientation="userLandscape"
@@ -51,37 +76,31 @@
             android:name=".ImageDetection"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".EasyPaint"
-            android:theme="@style/Theme" />
-        <activity
             android:name=".LearnNumbers"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:label="Let&apos;s Learn Numbers"
+            android:parentActivityName=".Math" />
         <activity
             android:name=".mathforkids.SettingsActivity"
+            android:label="Settings"
             android:parentActivityName=".mathforkids.MainActivity2" />
         <activity
             android:name=".mathforkids.ScoreActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".mathforkids.QuestionActivity"
-            android:label="Let&apos;s learn Math"
+            android:label="Let&apos;s Learn Math"
             android:parentActivityName=".mathforkids.MainActivity2" />
         <activity
             android:name=".mathforkids.GameOverActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".mathforkids.AchievementActivity"
-            android:parentActivityName=".mathforkids.MainActivity2" />
-        <activity
-            android:name=".mathforkids.AboutActivity"
+            android:label="Achievements"
             android:parentActivityName=".mathforkids.MainActivity2" />
         <activity
             android:name=".mathforkids.MainActivity2"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".Alphabet"
-            android:screenOrientation="userLandscape"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:label="Let&apos;s Learn Math"
+            android:parentActivityName=".Math" />
         <activity
             android:name=".Math"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

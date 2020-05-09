@@ -25,7 +25,7 @@ import java.io.IOException;
 public class Places {
 	public static File getScreenshotFolder() {
 		File path = new File(Environment.getExternalStorageDirectory(),
-				"/Acrylic Paint/");
+                "/e-Kindergarten/");
 		path.mkdirs();
 
 		return path;
@@ -33,7 +33,7 @@ public class Places {
 
 	public static File getCameraTempFolder() {
 		File path = new File(Environment.getExternalStorageDirectory(),
-				"/Acrylic Paint/Temp/");
+                "/e-Kindergarten/Temp/");
 		path.mkdirs();
 		// this folder should not be scanned
 		File noScanning = new File(path, ".nomedia");

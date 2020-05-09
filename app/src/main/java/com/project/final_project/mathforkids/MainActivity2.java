@@ -14,13 +14,10 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-          //      WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main2);
 
         // Create buttons and add action listeners
-        Button score = (Button) findViewById(R.id.score);
+        Button score = findViewById(R.id.score);
 
         score.setOnClickListener(new View.OnClickListener() {
 
@@ -29,7 +26,7 @@ public class MainActivity2 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Button start = (Button) findViewById(R.id.start);
+        Button start = findViewById(R.id.start);
 
         start.setOnClickListener(new View.OnClickListener() {
 
@@ -39,7 +36,7 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-        Button acheive = (Button) findViewById(R.id.achieve);
+        Button acheive = findViewById(R.id.achieve);
         acheive.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
@@ -48,7 +45,7 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-        Button settings = (Button) findViewById(R.id.settings);
+        Button settings = findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
@@ -56,14 +53,7 @@ public class MainActivity2 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Button about = (Button) findViewById(R.id.about);
-        about.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity2.this, AboutActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
 

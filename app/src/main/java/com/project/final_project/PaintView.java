@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class PaintView extends View {
 
 
-    public static int BRUSH_SIZE = 50;
+    public static int BRUSH_SIZE = 30;
     public static final int DEFAULT_COLOR = Color.WHITE;
     public static final int DEFAULT_BG_COLOR = Color.BLACK;
     private static final float TOUCH_TOLERANCE = 4;
@@ -138,7 +138,7 @@ public class PaintView extends View {
 
     // scale given bitmap by a factor and return a new bitmap
     public Bitmap scaleBitmap(int scaleFactor, Bitmap bitmap) {
-        return Bitmap.createScaledBitmap(bitmap, (int) (bitmap.getWidth() * scaleFactor), (int) (bitmap.getHeight() * scaleFactor), true);
+        return Bitmap.createScaledBitmap(bitmap, bitmap.getWidth() * scaleFactor, bitmap.getHeight() * scaleFactor, true);
     }
 
     // scale original bitmap down to network size (28x28)
