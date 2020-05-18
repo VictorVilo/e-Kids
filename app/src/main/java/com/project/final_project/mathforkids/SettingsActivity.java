@@ -2,8 +2,8 @@ package com.project.final_project.mathforkids;
 
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
@@ -37,10 +37,10 @@ public class SettingsActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        basic = (Switch) findViewById(R.id.basic);
-        intermediate = (Switch) findViewById(R.id.intermediate);
-        advanced = (Switch) findViewById(R.id.advanced);
-        Switch mute = (Switch) findViewById(R.id.mute);
+        basic = findViewById(R.id.basic);
+        intermediate = findViewById(R.id.intermediate);
+        advanced = findViewById(R.id.advanced);
+        Switch mute = findViewById(R.id.mute);
         SharedPreferences sp= PreferenceManager.getDefaultSharedPreferences(this);
         boolean muted = sp.getBoolean("mute", false);
         errorDifficultyMsg = Snackbar.make(findViewById(R.id.settingsLayout), R.string.difficultyError, Snackbar.LENGTH_SHORT);

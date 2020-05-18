@@ -41,13 +41,13 @@ public class PopupWonView extends RelativeLayout {
 	public PopupWonView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		LayoutInflater.from(context).inflate(R.layout.popup_won_view, this, true);
-		mTime = (TextView) findViewById(R.id.time_bar_text);
-		mScore = (TextView) findViewById(R.id.score_bar_text);
-		mStar1 = (ImageView) findViewById(R.id.star_1);
-		mStar2 = (ImageView) findViewById(R.id.star_2);
-		mStar3 = (ImageView) findViewById(R.id.star_3);
-		mBackButton = (ImageView) findViewById(R.id.button_back);
-		mNextButton = (ImageView) findViewById(R.id.button_next);
+        mTime = findViewById(R.id.time_bar_text);
+        mScore = findViewById(R.id.score_bar_text);
+        mStar1 = findViewById(R.id.star_1);
+        mStar2 = findViewById(R.id.star_2);
+        mStar3 = findViewById(R.id.star_3);
+        mBackButton = findViewById(R.id.button_back);
+        mNextButton = findViewById(R.id.button_next);
 		FontLoader.setTypeface(context, new TextView[] { mTime, mScore }, Font.GROBOLD);
 		setBackgroundResource(R.drawable.level_complete);
 		mHandler = new Handler();

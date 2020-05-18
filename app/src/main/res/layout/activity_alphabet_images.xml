@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,61 +9,66 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="41dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:fontFamily="monospace"
         android:text="WRITE A WORD STARTING WITH THIS LETTER"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Tap for Next Letter" />
+        android:text="Tap for Next Letter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/tvAlphabet"
-        android:layout_width="181dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/next"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="monospace"
-        android:gravity="center"
         android:onClick="generateRandom"
         android:textColor="#615992"
-        android:textSize="100sp" />
+        android:textSize="100sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/next" />
 
     <ImageView
         android:id="@+id/alphaImage"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerInParent="true" />
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAlphabet" />
 
     <EditText
         android:id="@+id/et_word"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/alphaImage"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
-        android:layout_marginRight="32dp"
-        android:inputType="text" />
+        android:layout_marginTop="20dp"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alphaImage" />
 
     <TextView
         android:id="@+id/tvSubmit"
-        android:layout_width="181dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et_word"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:background="@drawable/button_border"
-        android:gravity="center"
         android:padding="8dp"
-        android:text="SHOW ME" />
-</RelativeLayout>
+        android:text="SHOW ME"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_word" />
+</androidx.constraintlayout.widget.ConstraintLayout>

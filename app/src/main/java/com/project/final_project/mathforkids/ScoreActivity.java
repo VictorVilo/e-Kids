@@ -15,7 +15,7 @@ public class ScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
         SaveIntegerData highscore = new SaveIntegerData(this,"highscore");
-        TextView output = (TextView) findViewById(R.id.roundScore);
+        TextView output = findViewById(R.id.roundScore);
         output.append(String.valueOf(highscore.getData()));
 
     }

@@ -13,7 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class Home extends AppCompatActivity {
+
+    LottieAnimationView animationView, animationView2, animationView3, animationView4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,26 @@ public class Home extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_home);
 
+
+        animationView = findViewById(R.id.mathAnimation);
+        animationView.setAnimation("animations/math.json");
+        animationView.loop(true);
+        animationView.playAnimation();
+
+        animationView2 = findViewById(R.id.doodleAnimation);
+        animationView2.setAnimation("animations/drawing.json");
+        animationView2.loop(true);
+        animationView2.playAnimation();
+
+        animationView3 = findViewById(R.id.alphabetsAnimation);
+        animationView3.setAnimation("animations/abc.json");
+        animationView3.loop(true);
+        animationView3.playAnimation();
+
+        animationView4 = findViewById(R.id.patternAnimation);
+        animationView4.setAnimation("animations/draw.json");
+        animationView4.loop(true);
+        animationView4.playAnimation();
 
     }
 

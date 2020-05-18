@@ -106,9 +106,9 @@ public class Engine extends EventObserverAdapter {
 
 				protected void onPostExecute(Bitmap bitmap) {
 					mBackgroundImage.setImageBitmap(bitmap);
-				};
+                }
 
-			}.execute();
+            }.execute();
 		}
 	}
 
@@ -144,7 +144,7 @@ public class Engine extends EventObserverAdapter {
 				Bitmap bitmap = Utils.scaleDown(R.drawable.background, Utils.screenWidth(), Utils.screenHeight());
 				Bitmap backgroundImage = Themes.getBackgroundImage(mSelectedTheme);
 				backgroundImage = Utils.crop(backgroundImage, Utils.screenHeight(), Utils.screenWidth());
-				Drawable backgrounds[] = new Drawable[2];
+                Drawable[] backgrounds = new Drawable[2];
 				backgrounds[0] = new BitmapDrawable(Shared.context.getResources(), bitmap);
 				backgrounds[1] = new BitmapDrawable(Shared.context.getResources(), backgroundImage);
 				TransitionDrawable crossfader = new TransitionDrawable(backgrounds);

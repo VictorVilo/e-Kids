@@ -12,11 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.project.final_project.classification.ImageClassifier;
 import com.project.final_project.classification.Result;
 
@@ -39,11 +40,11 @@ public class Classify extends AppCompatActivity {
         setContentView(R.layout.activity_classify);
 
 
-        paintView = (PaintView) findViewById(R.id.paintView);
+        paintView = findViewById(R.id.paintView);
         paintView.init(); // initial drawing view
 
-        textViewResult = (TextView) findViewById(R.id.txt_result_label);
-        textViewDraw = (TextView) findViewById(R.id.txt_draw_label);
+        textViewResult = findViewById(R.id.txt_result_label);
+        textViewDraw = findViewById(R.id.txt_draw_label);
 
 
         // instantiate classifier
@@ -98,8 +99,17 @@ public class Classify extends AppCompatActivity {
         int expectedIndex = classifier.getExpectedIndex();
         if (result.getTopK().contains(expectedIndex)) {
             mainView.setBackgroundColor(Color.rgb(78, 175, 36));
+            LottieAnimationView animationView = findViewById(R.id.classifyAnimation);
+            animationView.setAnimation("animations/smile.json");
+            animationView.loop(false);
+            animationView.playAnimation();
         } else {
-            mainView.setBackgroundColor(Color.rgb(204, 0, 0));
+            mainView.setBackgroundColor(Color.rgb(200, 0, 0));
+            LottieAnimationView animationView2 = findViewById(R.id.classifyAnimation);
+            animationView2.setAnimation("animations/sad.json");
+            animationView2.loop(false);
+            animationView2.playAnimation();
+
         }
 
 
@@ -124,7 +134,7 @@ public class Classify extends AppCompatActivity {
 
         ImageView imageView = new ImageView(this);
         imageView.setImageBitmap(bitmap);
-        builder.addContentView(imageView, new RelativeLayout.LayoutParams(
+        builder.addContentView(imageView, new ConstraintLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));
         builder.show();
@@ -138,7 +148,7 @@ public class Classify extends AppCompatActivity {
 
         // get a random label and set as expected class
         classifier.setExpectedIndex(new Random().nextInt(classifier.getNumberOfClasses()));
-        textViewDraw.setText("Draw ... " + classifier.getLabel(classifier.getExpectedIndex()));
+        textViewDraw.setText("Can You Draw ... " + classifier.getLabel(classifier.getExpectedIndex()));
 
     }
 

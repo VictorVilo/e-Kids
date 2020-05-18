@@ -1,18 +1,33 @@
 apply plugin: 'com.android.library'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('key.jks')
+            storePassword '2580369'
+            keyAlias = 'key1'
+            keyPassword '2580369'
+        }
+    }
+
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        signingConfig signingConfigs.release
+        multiDexEnabled = true
     }
 
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            debuggable = false
+            signingConfig signingConfigs.release
         }
     }
 }

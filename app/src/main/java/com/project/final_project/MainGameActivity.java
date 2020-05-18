@@ -63,7 +63,7 @@ public class MainGameActivity extends FragmentActivity {
 	}
 
 	private void setBackgroundImage() {
-        Bitmap bitmap = Utils.scaleDown(R.drawable.alphabets_background, Utils.screenWidth(), Utils.screenHeight());
+        Bitmap bitmap = Utils.scaleDown(R.drawable.background, Utils.screenWidth(), Utils.screenHeight());
 		bitmap = Utils.crop(bitmap, Utils.screenHeight(), Utils.screenWidth());
 		bitmap = Utils.downscaleBitmap(bitmap, 2);
 		mBackgroundImage.setImageBitmap(bitmap);

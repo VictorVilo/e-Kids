@@ -131,6 +131,7 @@ public class SliderAdapter extends PagerAdapter {
         img1.setImageResource(slide_images[position]);
         tv2.setText(descs[position]);
 
+
         container.addView(view);
         return view;
 

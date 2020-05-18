@@ -1,9 +1,7 @@
 package com.project.final_project;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -12,9 +10,6 @@ import android.view.SurfaceView;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
-
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import com.project.final_project.views.OverlayView;
 
@@ -195,18 +190,6 @@ public class ImageDetection extends Activity implements CvCameraViewListener2 {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_image_detection);
 
-
-        if (ContextCompat.checkSelfPermission(ImageDetection.this,
-                Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            // if (ActivityCompat.shouldShowRequestPermissionRationale(Classify.this,
-            //       Manifest.permission.CAMERA)) {
-            ActivityCompat.requestPermissions(ImageDetection.this,
-                    new String[]{Manifest.permission.CAMERA}, 1);
-        } else {
-            ActivityCompat.requestPermissions(ImageDetection.this,
-                    new String[]{Manifest.permission.CAMERA}, 1);
-            //  }
-        }
 
         // get the OverlayView responsible for displaying images on top of the camera
         overlayView = findViewById(R.id.overlay_view);

@@ -33,6 +33,11 @@
         android:roundIcon="@mipmap/logo_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
+        <activity
+            android:name=".OnBoarding"
+            android:theme="@style/AppIntroTheme" />
         <activity
             android:name=".LearnAlphabets"
             android:screenOrientation="userLandscape"
@@ -67,7 +72,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Classify"
-            android:parentActivityName=".Pattern" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".ImageNumbers"
             android:screenOrientation="userLandscape"

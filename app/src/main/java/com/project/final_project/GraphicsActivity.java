@@ -28,7 +28,7 @@ class GraphicsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setRequestedOrientation(
-    			ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
     }
 
     @SuppressWarnings("unused")

@@ -2,12 +2,12 @@ package com.project.final_project.mathforkids;
 
 
 import android.content.Intent;
-import android.os.CountDownTimer;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
@@ -91,11 +91,11 @@ public class QuestionActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        final TextView questionText = (TextView) findViewById(R.id.question);
+        final TextView questionText = findViewById(R.id.question);
         String questionInput = Controller.askQuestion();  //Get question
         questionText.setText(questionInput);
 
-        final EditText answer = (EditText) findViewById(R.id.user_answer);
+        final EditText answer = findViewById(R.id.user_answer);
         answer.setKeyListener(null);
         Button backspace = getSpace();
         backspace.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +130,7 @@ public class QuestionActivity extends AppCompatActivity {
                     return;
                 }
                 boolean isCorrect = Controller.solve(answer.getText().toString());
-                final ImageView solved = (ImageView) findViewById(R.id.solved);
+                final ImageView solved = findViewById(R.id.solved);
 
                 if (isCorrect) {
                     solved.setImageResource(R.drawable.right);
@@ -145,7 +145,7 @@ public class QuestionActivity extends AppCompatActivity {
                         solved.setVisibility(View.GONE);
                     }
                 }, ANSWER_TIME);
-                final TextView questionText = (TextView) findViewById(R.id.question);
+                final TextView questionText = findViewById(R.id.question);
                 String questionInput = Controller.askQuestion();  //Get question
                 questionText.setText(questionInput);
                 answer.setText("");

@@ -12,13 +12,13 @@ public class FontLoader {
 	private static SparseArray<Typeface> fonts = new SparseArray<Typeface>();
 	private static boolean fontsLoaded = false;
 
-	public static enum Font {
+    public enum Font {
 		GROBOLD(FontLoader.GROBOLD, "fonts/grobold.ttf");
 
 		private int val;
 		private String path;
 
-		private Font(int val, String path) {
+        Font(int val, String path) {
 			this.val = val;
 			this.path = path;
 		}

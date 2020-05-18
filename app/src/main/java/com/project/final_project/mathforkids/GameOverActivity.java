@@ -27,11 +27,11 @@ public class GameOverActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_over);
 
-        TextView totalCorrect = (TextView) findViewById(R.id.roundCorrect);
+        TextView totalCorrect = findViewById(R.id.roundCorrect);
         int correct = Integer.parseInt(Controller.getCorrect());
         if(correct > highscore.getData()){
             highscore.setData(correct);
-            TextView newScore = (TextView) findViewById(R.id.newHighscore);
+            TextView newScore = findViewById(R.id.newHighscore);
             String newScoreText = "You have a new highscore of " + Controller.getCorrect();
             newScore.setText(newScoreText);
         }
@@ -39,10 +39,10 @@ public class GameOverActivity extends AppCompatActivity {
         overallCorrect.setData(correct + overallCorrect.getData());
         totalCorrect.append(Controller.getCorrect());
 
-        TextView totalWrong = (TextView) findViewById(R.id.roundIncorrect);
+        TextView totalWrong = findViewById(R.id.roundIncorrect);
         totalWrong.append(Controller.getTotalIncorrect());
 
-        TextView totalQuestions = (TextView) findViewById(R.id.roundAnswered);
+        TextView totalQuestions = findViewById(R.id.roundAnswered);
         totalQuestions.append(String.valueOf(Controller.getTotalQuestions()));
 
 

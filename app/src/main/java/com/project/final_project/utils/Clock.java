@@ -123,9 +123,9 @@ public class Clock {
 	}
 
 	public interface OnTimerCount {
-		public void onTick(long millisUntilFinished);
+        void onTick(long millisUntilFinished);
 
-		public void onFinish();
+        void onFinish();
 	}
 
 }

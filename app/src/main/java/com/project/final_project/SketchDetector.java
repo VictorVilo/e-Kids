@@ -144,6 +144,6 @@ public class SketchDetector {
             inputBuffer.putFloat(0xff - channel);
         }
         long endTime = SystemClock.uptimeMillis();
-        Log.d(TAG, "Time cost to put values into ByteBuffer: " + Long.toString(endTime - startTime));
+        Log.d(TAG, "Time cost to put values into ByteBuffer: " + (endTime - startTime));
     }
 }

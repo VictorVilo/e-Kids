@@ -1,81 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Classify">
 
-    <com.project.final_project.PaintView
-        android:id="@+id/paintView"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
-
-    <Button
-        android:id="@+id/btn_detect"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_next"
-        android:layout_alignParentStart="true"
-        android:onClick="onDetectClick"
-        android:text="Tell Me" />
-
-    <ImageButton
-        android:id="@+id/btn_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:background="@android:color/transparent"
-        android:contentDescription="Next"
-        android:onClick="onNextClick"
-        android:src="@drawable/next_icon" />
-
-    <ImageButton
-        android:id="@+id/btn_clear3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_detect"
-        android:layout_centerHorizontal="true"
-        android:background="@android:color/transparent"
-        android:contentDescription="Clear Paint"
-        android:onClick="onClearClick"
-        android:src="@drawable/eraser_icon" />
-
     <TextView
         android:id="@+id/txt_draw_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="monospace"
         android:text="Draw "
         android:textAlignment="center"
         android:textColor="@android:color/background_dark"
-        android:textSize="18sp" />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.project.final_project.PaintView
+        android:id="@+id/paintView"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_draw_label" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/classifyAnimation"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paintView" />
 
     <TextView
         android:id="@+id/think"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/txt_result_label"
-        android:layout_centerHorizontal="true"
         android:fontFamily="monospace"
         android:text="I think it's ..."
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classifyAnimation" />
 
     <TextView
         android:id="@+id/txt_result_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="105dp"
         android:fontFamily="monospace"
         android:text="Result"
-        android:textSize="20sp" />
-</RelativeLayout>
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/think" />
+
+    <Button
+        android:id="@+id/btn_detect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onDetectClick"
+        android:text="Tell Me"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_result_label" />
+
+    <ImageButton
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:contentDescription="Next"
+        android:onClick="onNextClick"
+        android:src="@drawable/next_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_clear3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:contentDescription="Clear Paint"
+        android:onClick="onClearClick"
+        android:src="@drawable/eraser_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

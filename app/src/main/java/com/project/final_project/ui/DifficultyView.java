@@ -23,7 +23,7 @@ public class DifficultyView extends LinearLayout {
 		super(context, attrs);
 		LayoutInflater.from(context).inflate(R.layout.difficult_view, this, true);
 		setOrientation(LinearLayout.VERTICAL);
-		mTitle = (ImageView) findViewById(R.id.title);
+        mTitle = findViewById(R.id.title);
 	}
 	
 	public void setDifficulty(int difficulty, int stars) {

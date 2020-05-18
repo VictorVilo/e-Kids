@@ -38,8 +38,8 @@ public class TileView extends FrameLayout {
 	@Override
 	protected void onFinishInflate() {
 		super.onFinishInflate();
-		mTopImage = (RelativeLayout) findViewById(R.id.image_top);
-		mTileImage = (ImageView) findViewById(R.id.image);
+        mTopImage = findViewById(R.id.image_top);
+        mTileImage = findViewById(R.id.image);
 	}
 
 	public void setTileImage(Bitmap bitmap) {

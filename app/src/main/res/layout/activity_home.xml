@@ -44,11 +44,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/mathAnimation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/math" />
+            app:lottie_fileName="animations/math.json" />
 
         <TextView
             android:layout_width="match_parent"
@@ -56,7 +57,7 @@
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="50dp"
             android:fontFamily="monospace"
-            android:text="Math"
+            android:text="Fun with Math"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="20sp" />
@@ -76,11 +77,12 @@
         app:layout_constraintStart_toEndOf="@+id/drawing"
         app:layout_constraintTop_toBottomOf="@+id/alphabets">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/patternAnimation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/pattern" />
+            app:lottie_fileName="animations/draw.json" />
 
         <TextView
             android:layout_width="match_parent"
@@ -88,7 +90,7 @@
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="50dp"
             android:fontFamily="monospace"
-            android:text="Pattern"
+            android:text="Find &amp; Draw"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="20sp" />
@@ -108,11 +110,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/math">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/doodleAnimation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/drawing" />
+            app:lottie_fileName="animations/drawing.json" />
 
         <TextView
             android:layout_width="match_parent"
@@ -141,11 +144,12 @@
         app:layout_constraintStart_toEndOf="@+id/math"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/alphabetsAnimation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/alphabets" />
+            app:lottie_fileName="animations/abc.json" />
 
         <TextView
             android:layout_width="match_parent"
@@ -153,7 +157,7 @@
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="50dp"
             android:fontFamily="monospace"
-            android:text="Alphabets"
+            android:text="Fun with ABC"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="20sp" />

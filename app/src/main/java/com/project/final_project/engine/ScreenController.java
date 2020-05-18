@@ -31,7 +31,7 @@ public class ScreenController {
 		return mInstance;
 	}
 
-	public static enum Screen {
+    public enum Screen {
 		MENU,
 		GAME,
 		DIFFICULTY,

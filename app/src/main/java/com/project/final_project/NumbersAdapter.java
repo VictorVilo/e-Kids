@@ -18,8 +18,8 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.MyViewHo
 
         public MyViewHolder(View view) {
             super(view);
-            digit = (TextView) view.findViewById(R.id.title);
-            number = (TextView) view.findViewById(R.id.genre);
+            digit = view.findViewById(R.id.title);
+            number = view.findViewById(R.id.genre);
         }
     }
 

@@ -19,14 +19,14 @@ public class AchievementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievement);
 
-        final ImageView trophy1 = (ImageView) findViewById(R.id.trophy1);
-        final ImageView trophy2 = (ImageView) findViewById(R.id.trophy2);
-        final ImageView trophy3 = (ImageView) findViewById(R.id.trophy3);
-        final ImageView trophy4 = (ImageView) findViewById(R.id.trophy4);
-        final ImageView trophy5 = (ImageView) findViewById(R.id.trophy5);
-        final ImageView trophy6 = (ImageView) findViewById(R.id.trophy6);
-        final ImageView trophy7 = (ImageView) findViewById(R.id.trophy7);
-        final ImageView trophy8 = (ImageView) findViewById(R.id.trophy8);
+        final ImageView trophy1 = findViewById(R.id.trophy1);
+        final ImageView trophy2 = findViewById(R.id.trophy2);
+        final ImageView trophy3 = findViewById(R.id.trophy3);
+        final ImageView trophy4 = findViewById(R.id.trophy4);
+        final ImageView trophy5 = findViewById(R.id.trophy5);
+        final ImageView trophy6 = findViewById(R.id.trophy6);
+        final ImageView trophy7 = findViewById(R.id.trophy7);
+        final ImageView trophy8 = findViewById(R.id.trophy8);
 
         SaveIntegerData highscore = new SaveIntegerData(this,"highscore");
         SaveIntegerData overallCorrect = new SaveIntegerData(this,"overallCorrect");

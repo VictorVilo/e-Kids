@@ -19,7 +19,7 @@ import com.project.final_project.model.GameState;
 public class PopupManager {
 	
 	public static void showPopupSettings() {
-		RelativeLayout popupContainer = (RelativeLayout) Shared.activity.findViewById(R.id.popup_container);
+        RelativeLayout popupContainer = Shared.activity.findViewById(R.id.popup_container);
 		popupContainer.removeAllViews();
 
 		// background
@@ -49,7 +49,7 @@ public class PopupManager {
 	}
 
 	public static void showPopupWon(GameState gameState) {
-		RelativeLayout popupContainer = (RelativeLayout) Shared.activity.findViewById(R.id.popup_container);
+        RelativeLayout popupContainer = Shared.activity.findViewById(R.id.popup_container);
 		popupContainer.removeAllViews();
 
 		// popup
@@ -73,7 +73,7 @@ public class PopupManager {
 	}
 
 	public static void closePopup() {
-		final RelativeLayout popupContainer = (RelativeLayout) Shared.activity.findViewById(R.id.popup_container);
+        final RelativeLayout popupContainer = Shared.activity.findViewById(R.id.popup_container);
 		int childCount = popupContainer.getChildCount();
 		if (childCount > 0) {
 			View background = null;
@@ -107,7 +107,7 @@ public class PopupManager {
 	}
 
 	public static boolean isShown() {
-		RelativeLayout popupContainer = (RelativeLayout) Shared.activity.findViewById(R.id.popup_container);
+        RelativeLayout popupContainer = Shared.activity.findViewById(R.id.popup_container);
 		return popupContainer.getChildCount() > 0;
 	}
 }

@@ -1,12 +1,12 @@
 package com.project.final_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.mikhaellopez.circularfillableloaders.CircularFillableLoaders;
 
@@ -29,12 +29,12 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 startActivity(new Intent(MainActivity.this,
-                        Home.class));
+                        OnBoarding.class));
                 finish();
             }
         }, secondsDelayed * 10000);
 
-        circularFillableLoaders = (CircularFillableLoaders) findViewById(R.id.circularFillableLoaders);
+        circularFillableLoaders = findViewById(R.id.circularFillableLoaders);
         circularFillableLoaders.setProgress(progress, 10000);
 
 
